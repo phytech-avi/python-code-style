@@ -1,0 +1,14 @@
+__pycache__/
+*/*__pycache__/
+*.py[cod]
+.vscode/
+
+
+*.log
+*.env
+*.json
+!*conf*.json
+.DS_Store
+.vscode/
+
+storage/
