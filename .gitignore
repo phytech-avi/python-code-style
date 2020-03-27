@@ -1,14 +1,17 @@
 __pycache__/
 */*__pycache__/
 *.py[cod]
-.vscode/
-
+#.vscode/
+# venv? возможно не весь а только папка с модулями
+venv/
 
 *.log
 *.env
 *.json
 !*conf*.json
 .DS_Store
+#vscode 2 раза
 .vscode/
 
-storage/
+#что за storage??
+storage/ 
