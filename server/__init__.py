@@ -12,6 +12,14 @@ from .types import ServerConfig
 
 
 def init_app(config: TypeVar(ServerConfig)):
+    """Init Flas app
+
+    Args:
+        config (ServerConfig): Config object
+
+    Returns:
+        Flask: instance of flask application
+    """
     app = Flask(__name__)
     app.config.from_object(config)
 
