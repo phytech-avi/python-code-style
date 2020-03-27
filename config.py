@@ -13,7 +13,7 @@ class Config:
 
 
 class BaseConfig(Config):
-    """ Base Run Config
+    """Base Run Config
     """
     BUG = False
 
