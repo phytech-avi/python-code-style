@@ -20,6 +20,11 @@ _PATH_TO_STORAGE = None
 
 
 def _create_dir(path_to_file: str) -> None:
+    """Private module db function to create dir if not exists
+
+    Args:
+        path_to_file (str): fs path to file
+    """
     dir_name = os.path.dirname(path_to_file)
 
     if not os.path.exists(dir_name):
@@ -38,13 +43,11 @@ def get_db():
 
 
 def init_db(path_to_storage: str) -> None:
-    """? Формат комментариев
+    """Function wich inits database location
 
-        ? Аргументы
-
-        ? Результат возврата
+    Args:
+        path_to_storage (str): FS path to sqlite file
     """
-
     global _PATH_TO_STORAGE
     _PATH_TO_STORAGE = path_to_storage
 
