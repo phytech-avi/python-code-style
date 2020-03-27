@@ -11,8 +11,8 @@
     app:app
 """
 
-from server import app
-
+from server import init_app
+from config import Config
 # ? Определять ли main функцию
 # Нет не обязательно, особенно если мы хотим чтобы при импорте модуля код исполнился
 # если нужны аргументы, то спецификация типов не обязательна
@@ -21,6 +21,7 @@ from server import app
 
 
 def main():
+    app = init_app(Config)
     app.run(host='0.0.0.0')
 
 
