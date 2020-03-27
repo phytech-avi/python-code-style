@@ -12,11 +12,12 @@ app.config.from_object(Config)
 
 with app.app_context():
     init_db(app.config["DB_STORAGE_PATH"])
-
+# тут вроде должно быть два пустых пропуска
 @app.teardown_appcontext
 def close_connection(exception):
     db = getattr(g, '_database', None)
     if db is not None:
         db.close()
+
 
 api.init_app(app)
