@@ -4,7 +4,7 @@ import os
 import datetime
 
 # Вторая группа
-# ? Импорт модулей в одну строчку
+# В одну строчку или Логически разделять
 from flask import request, current_app, jsonify
 from flask_restplus import Namespace, Resource
 # ? Каждый импорт на отдельной строчке
@@ -23,25 +23,26 @@ api = Namespace('Test', path="/", description='Test route')
 @api.response(200, "Success")
 @api.response(400, "Couldn't add to DB")
 class DevicePost(Resource):
-    """ ?Комментарии для классов
+    """ Тут согласно доке FLask-restplus
     """
-    def post(self, identifier: str):
-        """ ? Комментарии для методов классов
+
+    def post(self, identifier: str) -> dict:
+        """ Тоже
         """
 
         storage = get_db()
-        storage.execute("INSERT INTO test VALUES (?, ?)", (datetime.datetime.now(), identifier))
+        storage.execute("INSERT INTO test VALUES (?, ?)",
+                        (datetime.datetime.now(), identifier))
         storage.commit()
-        return jsonify(text=identifier)
-
+        # СМ доку restplus возвращаймый обьект по default превращается в json
+        return {"text": identifier}
 
     @api.response(200, "Success")
-    def get(self, identifier : str):
-        """? Комментарии
+    def get(self, identifier: str) -> dict:
+        """Тоже
         """
         storage = get_db()
         cursor = storage.cursor()
         cursor.execute("SELECT * FROM test WHERE text = ?", (identifier, ))
-        return jsonify(res=cursor.fetchall())
-
+        return {"res": cursor.fetchall()}
 
