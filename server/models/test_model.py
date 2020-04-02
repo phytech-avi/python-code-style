@@ -2,7 +2,7 @@
 # С питона версии 3 не пишем слово object
 
 
-class BaseModel():
+class BaseModel:
     """ ? Комментарии для классов
     """
 
