@@ -36,4 +36,4 @@ class TestConfig(Config):
     """This Config only for UnitTests
     """
     DEBUG = True
-    DB_STORAGE_PATH = "test/db_storage.sqlite"
+    DB_STORAGE_PATH = os.path.join("test", "db_storage.sqlite")
