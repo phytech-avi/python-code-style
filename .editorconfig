@@ -2,10 +2,7 @@
 root = true
 
 [{*.py}]
-# Пробелы всегда
 indent_style = space
 charset = utf-8
-# true - так как тогда символ EOF после автоматического форматирования, будет на новой строке а не сразу после последнего значещего символа на последней строке
 insert_final_newline = true
-# false - если true то останеться один пробел в конце строки или нет??? 
 trim_trailing_whitespace = true
