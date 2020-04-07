@@ -1,18 +1,18 @@
 # ? Группировка модулей
-# Первая группа
+# Первая группа ( модули из стандартной библиотеки)
 import os
 import datetime
 
-# Вторая группа
+# Вторая группа ( сторонние модули )
 # В одну строчку или Логически разделять
 from flask import request, current_app, jsonify
 from flask_restplus import Namespace, Resource
-# ? Каждый импорт на отдельной строчке
+# Каждый импорт на отдельной строчке
 # from flask import request
 # from flask import current_app
 # from flask_restplus import Namespace
 
-# ? Третья группа модули внутри проекта
+# Третья группа ( модули внутри проекта )
 from ..db import get_db
 
 
@@ -45,4 +45,3 @@ class DevicePost(Resource):
         cursor = storage.cursor()
         cursor.execute("SELECT * FROM test WHERE text = ?", (identifier, ))
         return {"res": cursor.fetchall()}
-
