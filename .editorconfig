@@ -1,4 +1,3 @@
-# Базовый пример .editorconfig
 root = true
 
 [{*.py}]
