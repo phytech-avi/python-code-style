@@ -1,11 +1,7 @@
-# Базовый пример .editorconfig
 root = true
 
-[{*.py,*.md}]
-# Пробелы или табуляция ?
+[{*.py}]
 indent_style = space
 charset = utf-8
-# true или false ?
 insert_final_newline = true
-# true или false ?
 trim_trailing_whitespace = true
