@@ -98,3 +98,4 @@ dmypy.json
 # Project ignore #
 ##################
 storage/
+.DS_Store
