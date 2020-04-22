@@ -54,7 +54,7 @@ Use only 4 spaces per indentation level.
 ### Indentation
 Continuation lines should align wrapped elements either vertically using Python's implicit line joining inside parentheses, brackets and braces, or using a hanging indent. When using a hanging indent the following should be considered; there should be no arguments on the first line and further indentation should be used to clearly distinguish itself as a continuation line:
 
-```
+```python
 # Correct:
 
 # Aligned with opening delimiter.
@@ -73,7 +73,7 @@ foo = long_function_name(
     var_three, var_four)
 ```
  
-```
+```python
 # Wrong:
 
 # Arguments on first line forbidden when not using vertical alignment.
@@ -91,7 +91,7 @@ The 4-space rule is optional for continuation lines.
 
 Optional:
 
-```
+```python
 # Hanging indents *may* be indented to other than 4 spaces.
 foo = long_function_name(
   var_one, var_two,
@@ -100,7 +100,7 @@ foo = long_function_name(
 
 When the conditional part of an if-statement is long enough to require that it be written across multiple lines, it's worth noting that the combination of a two character keyword (i.e. if), plus a single space, plus an opening parenthesis creates a natural 4-space indent for the subsequent lines of the multiline conditional. This can produce a visual conflict with the indented suite of code nested inside the if-statement, which would also naturally be indented to 4 spaces. This PEP takes no explicit position on how (or whether) to further visually distinguish such conditional lines from the nested suite inside the if-statement. Acceptable options in this situation include, but are not limited to:
 
-```
+```python
 # No extra indentation.
 if (this_is_one_thing and
     that_is_another_thing):
@@ -121,7 +121,7 @@ if (this_is_one_thing
 
 The closing brace/bracket/parenthesis on multiline constructs may either line up under the first non-whitespace character of the last line of list, as in:
 
-```
+```python
 my_list = [
     1, 2, 3,
     4, 5, 6,
@@ -134,7 +134,7 @@ result = some_function_that_takes_arguments(
 
 or it may be lined up under the first character of the line that starts the multiline construct, as in:
 
-```
+```python
 my_list = [
     1, 2, 3,
     4, 5, 6,
@@ -156,7 +156,7 @@ The preferred way of wrapping long lines is by using Python's implied line conti
 
 Backslashes may still be appropriate at times. For example, long, multiple with-statements cannot use implicit continuation, so backslashes are acceptable:
 
-```
+```python
 with open('/path/to/some/file/you/want/to/read') as file_1, \
      open('/path/to/some/file/being/written', 'w') as file_2:
     file_2.write(file_1.read())
@@ -170,7 +170,7 @@ Make sure to indent the continued line appropriately.
 
 For decades the recommended style was to break after binary operators. But this can hurt readability in two ways: the operators tend to get scattered across different columns on the screen, and each operator is moved away from its operand and onto the previous line. Here, the eye has to do extra work to tell which items are added and which are subtracted:
 
-```
+```python
 # Wrong:
 # operators sit far away from their operands
 income = (gross_wages +
@@ -184,7 +184,7 @@ To solve this readability problem, mathematicians and their publishers follow th
 
 Following the tradition from mathematics usually results in more readable code:
 
-```
+```python
 # Correct:
 # easy to match operators with operands
 income = (gross_wages
@@ -219,20 +219,20 @@ Open source projects with a global audience are encouraged to adopt a similar po
 ### Imports
 - Imports should usually be on separate lines:
 
-	```
+	```python
 	# Correct:
 	import os
 	import sys
 	```
 	
-	```
+	```python
 	# Wrong:
 	import sys, os
 	```
 	
 	It's okay to say this though:
 	
-	```
+	```python
 	# Correct:
 	from subprocess import Popen, PIPE
 	```
@@ -248,7 +248,7 @@ Open source projects with a global audience are encouraged to adopt a similar po
 
 - Absolute imports are recommended, as they are usually more readable and tend to be better behaved (or at least give better error messages) if the import system is incorrectly configured (such as when a directory inside a package ends up on sys.path):
 
-	```
+	```python
 	import mypkg.sibling
 	from mypkg import sibling
 	from mypkg.sibling import example
@@ -256,7 +256,7 @@ Open source projects with a global audience are encouraged to adopt a similar po
 	
 	However, explicit relative imports are an acceptable alternative to absolute imports, especially when dealing with complex package layouts where using absolute imports would be unnecessarily verbose:
 	
-	```
+	```python
 	from . import sibling
 	from .sibling import example
 	```
@@ -267,14 +267,14 @@ Open source projects with a global audience are encouraged to adopt a similar po
 
 - When importing a class from a class-containing module, it's usually okay to spell this:
 
-	```
+	```python
 	from myclass import MyClass
 	from foo.bar.yourclass import YourClass
 	```
 	
 	If this spelling causes local name clashes, then spell them explicitly:
 	
-	```
+	```python
 	import myclass
 	import foo.bar.yourclass
 	```
@@ -288,7 +288,7 @@ Open source projects with a global audience are encouraged to adopt a similar po
 ### Module Level Dunder Names
 Module level "dunders" (i.e. names with two leading and two trailing underscores) such as `__all__`, `__author__`, `__version__`, etc. should be placed after the module docstring but before any import statements except from `__future__` imports. Python mandates that future-imports must appear in the module before any other code except docstrings:
 
-```
+```python
 """This is the example module.
 
 This module does stuff.
@@ -317,43 +317,43 @@ Avoid extraneous whitespace in the following situations:
 
 - Immediately inside parentheses, brackets or braces:
 
-	```
+	```python
 	# Correct:
 	spam(ham[1], {eggs: 2})
 	```
 	
-	```
+	```python
 	# Wrong:
 	spam( ham[ 1 ], { eggs: 2 } )
 	```
 
 - Between a trailing comma and a following close parenthesis:
 
-	```
+	```python
 	# Correct:
 	foo = (0,)
 	```
 	
-	```
+	```python
 	# Wrong:
 	bar = (0, )
 	```
 
 - Immediately before a comma, semicolon, or colon:
 	
-	```
+	```python
 	# Correct:
 	if x == 4: print x, y; x, y = y, x
 	```
 	
-	```
+	```python
 	# Wrong:
 	if x == 4 : print x , y ; x , y = y , x
 	```
 
 - However, in a slice the colon acts like a binary operator, and should have equal amounts on either side (treating it as the operator with the lowest priority). In an extended slice, both colons must have the same amount of spacing applied. Exception: when a slice parameter is omitted, the space is omitted:
 
-	```
+	```python
 	# Correct:
 	ham[1:9], ham[1:9:3], ham[:9:3], ham[1::3], ham[1:9:]
 	ham[lower:upper], ham[lower:upper:], ham[lower::step]
@@ -362,7 +362,7 @@ Avoid extraneous whitespace in the following situations:
 	ham[lower + offset : upper + offset]
 	```
 	
-	```
+	```python
 	# Wrong:
 	ham[lower + offset:upper + offset]
 	ham[1: 9], ham[1 :9], ham[1:9 :3]
@@ -372,38 +372,38 @@ Avoid extraneous whitespace in the following situations:
 
 - Immediately before the open parenthesis that starts the argument list of a function call:
 
-	```
+	```python
 	# Correct:
 	spam(1)
 	```
 	
-	```
+	```python
 	# Wrong:
 	spam (1)
 	```
 
 - Immediately before the open parenthesis that starts an indexing or slicing:
 	
-	```
+	```python
 	# Correct:
 	dct['key'] = lst[index]
 	```
 	
-	```
+	```python
 	# Wrong:
 	dct ['key'] = lst [index]
 	```
 
 - More than one space around an assignment (or other) operator to align it with another:
 	
-	```
+	```python
 	# Correct:
 	x = 1
 	y = 2
 	long_variable = 3
 	```
 	
-	```
+	```python
 	# Wrong:
 	x             = 1
 	y             = 2
@@ -418,7 +418,7 @@ Avoid extraneous whitespace in the following situations:
 
 - If operators with different priorities are used, consider adding whitespace around the operators with the lowest priority(ies). Use your own judgment; however, never use more than one space, and always have the same amount of whitespace on both sides of a binary operator:
 
-	```
+	```python
 	# Correct:
 	i = i + 1
 	submitted += 1
@@ -427,7 +427,7 @@ Avoid extraneous whitespace in the following situations:
 	c = (a+b) * (a-b)
 	```
 	
-	```
+	```python
 	# Wrong:
 	i=i+1
 	submitted +=1
@@ -438,13 +438,13 @@ Avoid extraneous whitespace in the following situations:
 
 - Function annotations should use the normal rules for colons and always have spaces around the -> arrow if present. (See Function Annotations below for more about function annotations.):
 
-	```
+	```python
 	# Correct:
 	def munge(input: AnyStr): ...
 	def munge() -> PosInt: ...
 	```
 	
-	```
+	```python
 	# Wrong:
 	def munge(input:AnyStr): ...
 	def munge()->PosInt: ...
@@ -452,13 +452,13 @@ Avoid extraneous whitespace in the following situations:
 
 - Don't use spaces around the = sign when used to indicate a keyword argument, or when used to indicate a default value for an unannotated function parameter:
 
-	```
+	```python
 	# Correct:
 	def complex(real, imag=0.0):
 	    return magic(r=real, i=imag)
 	```
 	
-	```
+	```python
 	# Wrong:
 	def complex(real, imag = 0.0):
 	    return magic(r = real, i = imag)
@@ -466,13 +466,13 @@ Avoid extraneous whitespace in the following situations:
 	
 	When combining an argument annotation with a default value, however, do use spaces around the = sign:
 	
-	```
+	```python
 	# Correct:
 	def munge(sep: AnyStr = None): ...
 	def munge(input: AnyStr, sep: AnyStr = None, limit=1000): ...
 	```
 	
-	```
+	```python
 	# Wrong:
 	def munge(input: AnyStr=None): ...
 	def munge(input: AnyStr, limit = 1000): ...
@@ -480,7 +480,7 @@ Avoid extraneous whitespace in the following situations:
 
 - Compound statements (multiple statements on the same line) are generally discouraged:
 
-	```
+	```python
 	# Correct:
 	if foo == 'blah':
 	    do_blah_thing()
@@ -491,7 +491,7 @@ Avoid extraneous whitespace in the following situations:
 	
 	Rather not:
 	
-	```
+	```python
 	# Wrong:
 	if foo == 'blah': do_blah_thing()
 	do_one(); do_two(); do_three()
@@ -501,7 +501,7 @@ Avoid extraneous whitespace in the following situations:
 
 	Rather not:
 	
-	```
+	```python
 	# Wrong:
 	if foo == 'blah': do_blah_thing()
 	for x in lst: total += x
@@ -510,7 +510,7 @@ Avoid extraneous whitespace in the following situations:
 	
 	Definitely not:
 	
-	```
+	```python
 	# Wrong:
 	if foo == 'blah': do_blah_thing()
 	else: do_non_blah_thing()
@@ -528,19 +528,19 @@ Avoid extraneous whitespace in the following situations:
 
 Trailing commas are usually optional, except they are mandatory when making a tuple of one element. For clarity, it is recommended to surround the latter in (technically redundant) parentheses:
 
-```
+```python
 # Correct:
 FILES = ('setup.cfg',)
 ```
 
-```
+```python
 # Wrong:
 FILES = 'setup.cfg',
 ```
 
 When trailing commas are redundant, they are often helpful when a version control system is used, when a list of values, arguments or imported items is expected to be extended over time. The pattern is to put each value (etc.) on a line by itself, always adding a trailing comma, and add the close parenthesis/bracket/brace on the next line. However it does not make sense to have a trailing comma on the same line as the closing delimiter (except in the above case of singleton tuples):
 
-```
+```python
 # Correct:
 FILES = [
     'setup.cfg',
@@ -551,7 +551,7 @@ initialize(FILES,
            )
 ```
 
-```
+```python
 # Wrong:
 FILES = ['setup.cfg', 'tox.ini',]
 initialize(FILES, error=True,)
@@ -581,13 +581,13 @@ An inline comment is a comment on the same line as a statement. Inline comments 
 
 Inline comments are unnecessary and in fact distracting if they state the obvious. Don't do this:
 
-```
+```python
 x = x + 1                 # Increment x
 ```
 
 But sometimes, this is useful:
 
-```
+```python
 x = x + 1                 # Compensate for border
 ```
 
@@ -598,7 +598,7 @@ Conventions for writing good documentation strings (a.k.a. "docstrings") are imm
 
 - PEP 257 describes good docstring conventions. Note that most importantly, the """ that ends a multiline docstring should be on a line by itself:
 
-	```
+	```python
 	"""Return a foobang
 	
 	Optional plotz says to frobnicate the bizbaz first.
@@ -679,7 +679,7 @@ Note that there is a separate convention for builtin names: most builtin names a
 ### Type Variable Names
 Names of type variables introduced in PEP 484 should normally use CapWords preferring short names: T, AnyStr, Num. It is recommended to add suffixes `_co` or `_contra` to the variables used to declare covariant or contravariant behavior correspondingly:
 
-```
+```python
 from typing import TypeVar
 
 VT_co = TypeVar('VT_co', covariant=True)
@@ -780,12 +780,12 @@ Imported names should always be considered an implementation detail. Other modul
 
 - Use `is not` operator rather than `not ... is`. While both expressions are functionally identical, the former is more readable and preferred:
 
-	```
+	```python
 	# Correct:
 	if foo is not None:
 	```
 	
-	```
+	```python
 	# Wrong:
 	if not foo is None:
 	```
@@ -798,12 +798,12 @@ Imported names should always be considered an implementation detail. Other modul
 
 - Always use a def statement instead of an assignment statement that binds a lambda expression directly to an identifier:
 
-	```
+	```python
 	# Correct:
 	def f(x): return 2*x
 	```
 	
-	```
+	```python
 	# Wrong:
 	f = lambda x: 2*x
 	```
@@ -816,19 +816,13 @@ Imported names should always be considered an implementation detail. Other modul
 	
 	Class naming conventions apply here, although you should add the suffix "Error" to your exception classes if the exception is an error. Non-error exceptions that are used for non-local flow control or other forms of signaling need no special suffix.
 
-- Use exception chaining appropriately. In Python 3, "raise X from Y" should be used to indicate explicit replacement without losing the original traceback.
+- Use exception chaining appropriately. `raise X from Y` should be used to indicate explicit replacement without losing the original traceback.
 
-	When deliberately replacing an inner exception (using "raise X" in Python 2 or "raise X from None" in Python 3.3+), ensure that relevant details are transferred to the new exception (such as preserving the attribute name when converting KeyError to AttributeError, or embedding the text of the original exception in the new exception message).
-
-- When raising an exception in Python 2, use raise ValueError('message') instead of the older form raise ValueError, 'message'.
-
-	The latter form is not legal Python 3 syntax.
-	
-	The paren-using form also means that when the exception arguments are long or include string formatting, you don't need to use line continuation characters thanks to the containing parentheses.
+	When deliberately replacing an inner exception `raise X from None`, ensure that relevant details are transferred to the new exception (such as preserving the attribute name when converting `KeyError` to `AttributeError`, or embedding the text of the original exception in the new exception message).
 
 - When catching exceptions, mention specific exceptions whenever possible instead of using a bare except: clause:
 	
-	```
+	```python
 	try:
 	    import platform_specific_module
 	except ImportError:
@@ -847,7 +841,7 @@ Imported names should always be considered an implementation detail. Other modul
 
 - Additionally, for all try/except clauses, limit the try clause to the absolute minimum amount of code necessary. Again, this avoids masking bugs:
 
-	```
+	```python
 	# Correct:
 	try:
 	    value = collection[key]
@@ -857,7 +851,7 @@ Imported names should always be considered an implementation detail. Other modul
 	    return handle_value(value)
 	```
 	
-	```
+	```python
 	# Wrong:
 	try:
 	    # Too broad!
@@ -871,13 +865,13 @@ Imported names should always be considered an implementation detail. Other modul
 
 - Context managers should be invoked through separate functions or methods whenever they do something other than acquire and release resources:
 
-	```
+	```python
 	# Correct:
 	with conn.begin_transaction():
 	    do_stuff_in_transaction(conn)
 	```
 	
-	```
+	```python
 	# Wrong:
 	with conn:
 	    do_stuff_in_transaction(conn)
@@ -887,7 +881,7 @@ Imported names should always be considered an implementation detail. Other modul
 
 - Be consistent in return statements. Either all return statements in a function should return an expression, or none of them should. If any return statement returns an expression, any return statements where no value is returned should explicitly state this as return None, and an explicit return statement should be present at the end of the function (if reachable):
 
-	```
+	```python
 	# Correct:
 	
 	def foo(x):
@@ -902,7 +896,7 @@ Imported names should always be considered an implementation detail. Other modul
 	    return math.sqrt(x)
 	```
 	
-	```
+	```python
 	# Wrong:
 	
 	def foo(x):
@@ -923,43 +917,37 @@ Imported names should always be considered an implementation detail. Other modul
 
 	startswith() and endswith() are cleaner and less error prone:
 	
-	```
+	```python
 	# Correct:
 	if foo.startswith('bar'):
 	```
 	
-	```
+	```python
 	# Wrong:
 	if foo[:3] == 'bar':
 	```
 	
 	Object type comparisons should always use isinstance() instead of comparing types directly:
 	
-	```
+	```python
 	# Correct:
 	if isinstance(obj, int):
 	```
 	
-	```
+	```python
 	# Wrong:
 	if type(obj) is type(1):
 	```
-
-	When checking if an object is a string, keep in mind that it might be a unicode string too! In Python 2, str and unicode have a common base class, basestring, so you can do:
-	
-	```if isinstance(obj, basestring):```
-	
-	Note that in Python 3, unicode and basestring no longer exist (there is only str) and a bytes object is no longer a kind of string (it is a sequence of integers instead).
 	
 	For sequences, (strings, lists, tuples), use the fact that empty sequences are false:
 	
-	```
+	```python
 	# Correct:
 	if not seq:
 	if seq:
 	```
 	
-	```
+	```python
 	# Wrong:
 	if len(seq):
 	if not len(seq):
@@ -970,26 +958,26 @@ Imported names should always be considered an implementation detail. Other modul
 - Don't compare boolean values to True or False using ==:
 
 
-	```
+	```python
 	# Correct:
 	if greeting:
 	```
 	
-	```
+	```python
 	# Wrong:
 	if greeting == True:
 	```
 	
 	Worse:
 	
-	```
+	```python
 	# Wrong:
 	if greeting is True:
 	```
 
 - Use of the flow control statements return/break/continue within the finally suite of a try...finally, where the flow control statement would jump outside the finally suite, is discouraged. This is because such statements will implicitly cancel any active exception that is propagating through the finally suite:
 
-	```
+	```python
 	# Wrong:
 	def foo():
 	    try:
@@ -1011,7 +999,7 @@ PEP 526 introduced variable annotations. The style recommendations for them are 
 
 - If an assignment has a right hand side, then the equality sign should have exactly one space on both sides:
 
-	```
+	```python
 	# Correct:
 	
 	code: int
@@ -1021,7 +1009,7 @@ PEP 526 introduced variable annotations. The style recommendations for them are 
 	    label: str = '<unknown>'
 	```
 	
-	```
+	```python
 	# Wrong:
 	
 	code:int  # No space after colon
