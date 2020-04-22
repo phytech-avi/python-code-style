@@ -7,6 +7,44 @@ This repository is an example for basic flask application.
 
 Here is a style guide based on [PEP 8 Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/) with some additions from [Google python style guide](https://github.com/google/styleguide/blob/gh-pages/pyguide.md) and our code style decisions.
 
+## Lint 
+
+Run `pylint` over your code.
+
+### Definition 
+
+`pylint` is a tool for finding bugs and style problems in Python source
+code. It finds problems that are typically caught by a compiler for less dynamic
+languages like C and C++. Because of the dynamic nature of Python, some
+warnings may be incorrect; however, spurious warnings should be fairly
+infrequent.
+
+### How to supress inapropriate warnings 
+
+Make sure you run `pylint` on your code.
+
+
+Suppress warnings if they are inappropriate so that other issues are not hidden.
+To suppress warnings, you can set a line-level comment:
+
+```python
+dict = 'something awful'  # Bad Idea... pylint: disable=redefined-builtin
+```
+
+You can get a list of `pylint` warnings by doing:
+
+```shell
+pylint --list-msgs
+```
+
+To get more information on a particular message, use:
+
+```shell
+pylint --help-msg=C6409
+```
+
+Prefer `pylint: disable` to the deprecated older form `pylint: disable-msg`.
+
 
 ## Code Lay-out
 
