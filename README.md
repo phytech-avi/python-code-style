@@ -1030,3 +1030,4 @@ PEP 526 introduced variable annotations. The style recommendations for them are 
 - Use .pylintrc (see example)
 - Define config.py to configure server settings
 - Name main module as main.py
+- Use [flask-restx](https://github.com/python-restx/flask-restx) for documentation
