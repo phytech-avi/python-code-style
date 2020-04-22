@@ -2,7 +2,7 @@
 
 ##Introduction
 
-This repository is an example for basic flask application.
+This repository is an example for basic flask application with code style recommendations.
 
 
 Here is a style guide based on [PEP 8 Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/) with some additions from [Google python style guide](https://github.com/google/styleguide/blob/gh-pages/pyguide.md) and our code style decisions.
@@ -236,6 +236,9 @@ Open source projects with a global audience are encouraged to adopt a similar po
 	# Correct:
 	from subprocess import Popen, PIPE
 	```
+	
+	Group your imports according to logic and the line length.
+	
 
 - Imports are always put at the top of the file, just after any module comments and docstrings, and before module globals and constants.
 
@@ -303,6 +306,7 @@ __author__ = 'Cardinal Biggles'
 import os
 import sys
 ```
+Define `__all__` in case when your module doesn't depend on external modules. It might help to create package further.
 
 ## String Quotes
 
@@ -987,7 +991,7 @@ Imported names should always be considered an implementation detail. Other modul
 	```
 
 ### Function Annotations
-In order to be forward compatible, function annotations in Python 3 code should preferably use PEP 484 syntax. (There are some formatting recommendations for annotations in the previous section.)
+Use type annotations for functions. In order to be forward compatible, function annotations should preferably use PEP 484 syntax. (There are some formatting recommendations for annotations in the previous section.)
 
 
 ### Variable Annotations
@@ -1018,3 +1022,11 @@ PEP 526 introduced variable annotations. The style recommendations for them are 
 	class Test:
 	    result: int=0  # No spaces around equality sign
 	```
+## Flask server
+
+- Use `app` name for instance of flask application
+- Use .editorconfig (see example)
+- Use .gitignore (see example). You can generate gitignore file by [gitignore.io](https://www.gitignore.io/)
+- Use .pylintrc (see example)
+- Define config.py to configure server settings
+- Name main module as main.py
