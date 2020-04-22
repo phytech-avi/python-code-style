@@ -1,12 +1,11 @@
+# Python Style guide
+
 ##Introduction
 
-This document and PEP 257 (Docstring Conventions) were adapted from Guido's original Python Style Guide essay, with some additions from our style decisions.
+This repository is an example for basic flask application.
 
-This style guide evolves over time as additional conventions are identified and past conventions are rendered obsolete by changes in the language itself.
 
-In particular: do not break backwards compatibility just to comply with this PEP!
-
-Some other good reasons to ignore a particular guideline:
+Here is a style guide based on [PEP 8 Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/) with some additions from [Google python style guide](https://github.com/google/styleguide/blob/gh-pages/pyguide.md) and our code style decisions.
 
 
 ## Code Lay-out
