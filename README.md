@@ -289,7 +289,7 @@ Open source projects with a global audience are encouraged to adopt a similar po
 	When republishing names this way, the guidelines below regarding public and internal interfaces still apply.
 
 ### Module Level Dunder Names
-Module level "dunders" (i.e. names with two leading and two trailing underscores) such as `__all__`, `__author__`, `__version__`, etc. should be placed after the module docstring but before any import statements except from `__future__` imports. Python mandates that future-imports must appear in the module before any other code except docstrings:
+If you add module level "dunders" (i.e. names with two leading and two trailing underscores) such as `__all__`, `__author__`, `__version__`, etc. you should place them after the module docstring but before any import statements except from `__future__` imports:
 
 ```python
 """This is the example module.
@@ -306,7 +306,8 @@ __author__ = 'Cardinal Biggles'
 import os
 import sys
 ```
-Define `__all__` in case when your module doesn't depend on external modules. It might help to create package further.
+
+`__author__` and `__version__` are optional. Define `__all__` in case when your module doesn't depend on external modules. It might help to create package further.
 
 ## String Quotes
 
