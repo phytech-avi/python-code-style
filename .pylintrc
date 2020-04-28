@@ -208,7 +208,10 @@ bad-names=foo,
           tutu,
           tata,
           lol,
-          kek
+          kek,
+          l,
+          I,
+          O
 
 # Naming style matching correct class attribute names.
 #class-attribute-naming-style=any
