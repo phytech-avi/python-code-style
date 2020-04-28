@@ -147,7 +147,7 @@ result = some_function_that_takes_arguments(
 
 ### Maximum Line Length
 
-Limit code lines to a maximum of 99 characters.
+Limit code lines to a maximum of 100 characters.
 
 Limit documentation lines to a maximum 72 characters for documentation and comments.
 
