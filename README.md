@@ -414,7 +414,7 @@ Avoid extraneous whitespace in the following situations:
 	x             = 1
 	y             = 2
 	long_variable = 3
-```
+	```
 
 ### Other Recommendations
 
