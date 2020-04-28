@@ -1,6 +1,6 @@
 # Python Style guide
 
-##Introduction
+## Introduction
 
 This repository is an example for basic flask application with code style recommendations.
 
@@ -244,9 +244,10 @@ Open source projects with a global audience are encouraged to adopt a similar po
 
 	Imports should be grouped in the following order:
 	
-	Standard library imports.
-	Related third party imports.
-	Local application/library specific imports.
+	0. Standard library imports.
+	0. Related third party imports.
+	0. Local application/library specific imports.
+	
 	You should put a blank line between each group of imports.
 
 - Absolute imports are recommended, as they are usually more readable and tend to be better behaved (or at least give better error messages) if the import system is incorrectly configured (such as when a directory inside a package ends up on sys.path):
