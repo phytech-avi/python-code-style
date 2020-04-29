@@ -1,14 +1,13 @@
+# ALL указываем в том случае если наш module не зависит от внешних модулей, и не важно положение в FS OS
+# это поможет создать из этого module -> pakage
+__all__ = ["get_db", "init_db"]
+
 # Группировка import
 import sqlite3
 import os
 
-
 from flask import current_app
 from flask import g
-
-# ALL указываем в том случае если наш module не зависит от внешних модулей, и не важно положение в FS OS
-# это поможет создать из этого module -> pakage
-__all__ = ["get_db", "init_db"]
 
 # Все переменные, которые не должны экспортироваться начинать с _
 _PATH_TO_STORAGE = None
