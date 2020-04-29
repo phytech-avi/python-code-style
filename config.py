@@ -2,8 +2,6 @@
 """
 
 import os
-import pathlib
-
 
 from server.types import ServerConfig
 
